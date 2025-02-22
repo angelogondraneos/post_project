@@ -12,6 +12,9 @@
 # ]
 from django.urls import path
 from . import views
+from django.urls import path
+from .views import UserListCreate, PostListCreate, CommentListCreate
+
 
 
 urlpatterns = [
@@ -19,4 +22,8 @@ urlpatterns = [
     path('users/create/', views.create_users, name='create_users'),
     path('posts/', views.get_posts, name='get_posts'),
     path('posts/create/', views.create_posts, name='create_posts'),
+    path('users/', UserListCreate.as_view(), name='user-list-create'),
+    path('posts/', PostListCreate.as_view(), name='post-list-create'),
+    path('comments/', CommentListCreate.as_view(), name='comment-list-create'),
+
 ]
